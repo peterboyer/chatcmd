@@ -2,7 +2,7 @@
 	"license": "MIT",
 	"scripts": {
 		"start": "tsx src/chatcmd.ts",
-		"dev": "tsx --watch src/chatcmd.ts"
+		"dev": "tsx --no-warnings --watch src/chatcmd.ts"
 	},
 	"dependencies": {
 		"dotenv": "^16.4.4",
