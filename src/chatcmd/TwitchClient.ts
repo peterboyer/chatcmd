@@ -33,14 +33,19 @@ export async function createTwitchClient({
 	}
 
 	let client: tmi.Client | undefined = undefined;
-
 	let pendingMessage: string | undefined = undefined;
 
 	async function flushPendingMessage() {
-		if (pendingMessage && client && client.readyState() === "OPEN") {
-			await client.say(env.TWITCH_CHANNEL, pendingMessage);
-			pendingMessage = undefined;
+		if (!(client && client.readyState() === "OPEN")) {
+			return;
 		}
+
+		if (!pendingMessage) {
+			return;
+		}
+
+		await client.say(env.TWITCH_CHANNEL, pendingMessage);
+		pendingMessage = undefined;
 	}
 
 	async function main() {
