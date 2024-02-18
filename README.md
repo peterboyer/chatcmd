@@ -2,10 +2,38 @@
 
 ## Usage
 
+- See [Config](#config).
+
 ```
 yarn install        # install deps
 yarn start          # run
 yarn dev            # run, watching for code changes
+```
+
+## Send Messages
+
+```
+curl http://localhost:4111/chat --data "hello world"
+```
+
+## Send Messages from Vim
+
+### Vim Usage
+
+```
+:Chat hello world
+```
+
+### Vim Config
+
+```
+vim.cmd([[
+function! Chat(message)
+	silent execute "!curl --silent http://localhost:4111/chat --data" "\"" a:message "\""
+	echo ""
+endfunction
+command! -nargs=+ Chat call Chat(<q-args>)
+]])
 ```
 
 ## Config
@@ -33,29 +61,3 @@ twitch token -u -s 'chat:read chat:edit'
 Using the [Twitch Console > Apps](https://dev.twitch.tv/console/apps).
 
 - See [Registering Your App](https://dev.twitch.tv/docs/authentication/register-app/).
-
-## Send Messages
-
-```
-curl http://localhost:4111/chat --data "hello world"
-```
-
-## Send Messages from Vim
-
-### Vim Usage
-
-```
-:Chat hello world
-```
-
-### Vim Config
-
-```
-vim.cmd([[
-function! Chat(message)
-	silent execute "!curl --silent http://localhost:4111/chat --data" "\"" a:message "\""
-	echo ""
-endfunction
-command! -nargs=+ Chat call Chat(<q-args>)
-]])
-```
