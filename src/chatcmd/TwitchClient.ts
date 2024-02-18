@@ -45,10 +45,10 @@ export async function createTwitchClient({
 
 	async function main() {
 		if (client) {
-			console.log("TwitchClient: reauthenticating ...");
+			!env.QUIET && console.log("TwitchClient: reauthenticating ...");
 			await client.disconnect();
 		} else {
-			console.log("TwitchClient: connecting ...");
+			!env.QUIET && console.log("TwitchClient: connecting ...");
 		}
 
 		const [authToken, { expiresInMs }] = await getAuthToken();
@@ -69,7 +69,7 @@ export async function createTwitchClient({
 		});
 
 		await client.connect();
-		console.log("TwitchClient: connected");
+		!env.QUIET && console.log("TwitchClient: connected");
 		setTimeout(() => flushPendingMessage(), 500);
 	}
 

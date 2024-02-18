@@ -35,6 +35,6 @@ export async function createHttpApi({ env, onChat }: Options): Promise<void> {
 			}
 		})
 		.listen(env.HTTP_PORT, env.HTTP_HOST, () => {
-			console.log("HttpApi: started");
+			!env.QUIET && console.log("HttpApi: started");
 		});
 }
