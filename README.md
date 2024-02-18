@@ -29,7 +29,7 @@ curl http://localhost:4111/chat --data "hello world"
 ```
 vim.cmd([[
 function! Chat(message)
-	silent execute "!curl --silent http://localhost:4111/chat --data" "\"" a:message "\""
+	silent execute "!curl --silent http://localhost:4111/chat --data" "\"" escape(a:message, '!"') "\""
 	echo ""
 endfunction
 command! -nargs=+ Chat call Chat(<q-args>)
