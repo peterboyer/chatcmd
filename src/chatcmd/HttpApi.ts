@@ -34,7 +34,7 @@ export async function createHttpApi({ env, onChat }: Options): Promise<void> {
 				});
 			}
 		})
-		.listen(env.DAEMON_PORT, env.DAEMON_HOST, () => {
+		.listen(env.HTTP_PORT, env.HTTP_HOST, () => {
 			console.log("HttpApi: started");
 		});
 }

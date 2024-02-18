@@ -16,8 +16,8 @@ TWITCH_REFRESH_TOKEN="..."      # refresh token from twitch cli (for user)
 TWITCH_CHANNEL="..."            # target chat channel to send messages to
 TWITCH_APP_CLIENT_ID="..."      # your twitch developer app's client id
 TWITCH_APP_CLIENT_SECRET="..."  # your twitch developer app's client secret
-DAEMON_PORT="4111"              # local port to use for http api
-DAEMON_HOST="0.0.0.0"           # local host to use for http api
+HTTP_PORT="4111"                # local port to use for http api
+HTTP_HOST="0.0.0.0"             # local host to use for http api
 ```
 
 ### Refresh Token

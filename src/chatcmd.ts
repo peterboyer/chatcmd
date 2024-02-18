@@ -10,8 +10,8 @@ const EnvSchema = object({
 	TWITCH_CHANNEL: string(),
 	TWITCH_APP_CLIENT_ID: string(),
 	TWITCH_APP_CLIENT_SECRET: string(),
-	DAEMON_PORT: transform(string(), (input) => parseInt(input)),
-	DAEMON_HOST: string(),
+	HTTP_PORT: transform(string(), (input) => parseInt(input)),
+	HTTP_HOST: string(),
 });
 
 dotenv.config();
